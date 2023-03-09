@@ -27,6 +27,13 @@ public class PlayerController : MonoBehaviour
     // ** 복사할 총알 원본
     public GameObject BulletPrefab;
 
+    // ** 복제할 fx 원본
+    public GameObject fxPrefab;
+
+
+    public GameObject[] stageBack = new GameObject[7];
+
+
     // ** 복제된 총알의 저장공간
     private List<GameObject> Bullets = new List<GameObject>();
 
@@ -57,6 +64,9 @@ public class PlayerController : MonoBehaviour
         onJump = false;
 
         Direction = 1.0f;
+
+        for (int i = 0; i < 7; ++i)
+            stageBack[i] = GameObject.Find(i.ToString());
     }
 
     // ** 유니티 기본 제공 함수
@@ -107,19 +117,29 @@ public class PlayerController : MonoBehaviour
         // ** 스페이스바를 입력한다면
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // ** 공격
+            OnAttack();
+
+            // ** 총알원본을 본제한다.
             GameObject Obj = Instantiate(BulletPrefab);
-            //Obj.transform.name = "";
+
+            // ** 복제된 총알의 위치를 현재 플레이어의 위치로 초기화한다.
             Obj.transform.position = transform.position;
+
+            // ** 총알의 BullerController 스크립트를 받아온다.
             BulletController Controller = Obj.AddComponent<BulletController>();
-            SpriteRenderer bulletRenderer = Obj.GetComponent<SpriteRenderer>();
-            Controller.Direction = (Hor < 0) ? new Vector3(-1.0f, 0.0f, 0.0f) : new Vector3(1.0f, 0.0f, 0.0f);
-            
+
+            // ** 총알 스크립트내부의 방향 변수를 현재 플레이어의 방향 변수로 설정 한다.
+            Controller.Direction = new Vector3(Direction, 0.0f, 0.0f);
+
+            // ** 총알 스크립트 내부의 FX Prefab을 설정한다.
+            Controller.fxPrefab = fxPrefab;
 
             // ** 총알의 SpriteRenderer를 받아온다.
-            SpriteRenderer renderer = Obj.GetComponent<SpriteRenderer>();
+            SpriteRenderer buleltRenderer = Obj.GetComponent<SpriteRenderer>();
 
-            // ** 총알의 이미지 반전 상태를 플레이어의 이미지 반전 설정한다.
-            bulletRenderer.flipY = playerRenderer.flipX;
+            // ** 총알의 이미지 반전 상태를 플레이어의 이미지 반전 상태로 설정한다.
+            buleltRenderer.flipY = playerRenderer.flipX;
 
             // ** 모든 설정이 종료되었다면 저장소에 보관한다.
             Bullets.Add(Obj);
@@ -129,7 +149,9 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", Hor);
 
         // ** 실제 플레이어를 움직인다.
-        transform.position += Movement;
+
+        // ** offset box
+        //transform.position += Movement;
     }
 
     private void OnAttack()

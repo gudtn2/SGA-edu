@@ -26,10 +26,10 @@ public class PlayerController : MonoBehaviour
     private bool onJump;
 
     // ** 복사할 총알 원본
-    public GameObject BulletPrefab;
+    private GameObject BulletPrefab;
 
     // ** 복제할 fx 원본
-    public GameObject fxPrefab;
+    private GameObject fxPrefab;
 
 
     public GameObject[] stageBack = new GameObject[7];
@@ -52,6 +52,10 @@ public class PlayerController : MonoBehaviour
 
         // ** player 의 SpriteRenderer를 받아온다.
         playerRenderer = GetComponent<SpriteRenderer>();
+
+        // ** [Resources] 폴더에서 사용할 리소스를 들고온다.
+        BulletPrefab = Resources.Load("Prefabs/Bullet") as GameObject;
+        fxPrefab = Resources.Load("Prefabs/Fx/Smoke") as GameObject;
     }
 
     // ** 유니티 기본 제공 함수
@@ -85,13 +89,46 @@ public class PlayerController : MonoBehaviour
         float Hor = Input.GetAxisRaw("Horizontal"); // -1 or 0 or 1 셋중에 하나를 반환
         float Ver = Input.GetAxis("Vertical"); // -1 ~ 1까지 실수로 반환 
 
+
+        // **  입력받은 값으로 플레이어를 움직인다
+        Movement = new Vector3(
+            Hor * Time.deltaTime * Speed,
+            0.0f,
+            0.0f);
+
         // ** Hor이 0이라며 멈춰있는 상태이므로 예외처리를 해준다.
         if (Hor != 0)
             Direction = Hor;
-        else
+
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            DirLeft = false;
-            DirRight = false;
+            // ** 플레이어의 좌표가 0.0보다 작을때 플레이어만 움직인다.
+            if (transform.position.x < 0)
+            {
+                transform.position += Movement;
+            }
+
+            else
+            {
+                ControllerManager.GetInstance().DirRight = true;
+                ControllerManager.GetInstance().DirLeft = false;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            ControllerManager.GetInstance().DirRight = false;
+            ControllerManager.GetInstance().DirLeft = true;
+               // ** 플레이어의 좌표가 -15보다 클때 플레이어만 움직인다.
+                if(transform.position.x > -15.0f)
+                // ** 실제 플레이어를 움직인다.
+                transform.position += Movement;
+        }
+
+        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            ControllerManager.GetInstance().DirRight = false;
+            ControllerManager.GetInstance().DirLeft = false;
         }
 
         // ** 플레이어가 바라보고있는 방향에 따라 이미지 반전 설정
@@ -103,15 +140,10 @@ public class PlayerController : MonoBehaviour
         }
         else if (Direction > 0)
         {
-            playerRenderer.flipX = DirRight = false;
+            playerRenderer.flipX = false;
             DirRight = true;
         }
 
-        // **  입력받은 값으로 플레이어를 움직인다
-        Movement = new Vector3(
-            Hor * Time.deltaTime * Speed, 
-            Ver * Time.deltaTime * Speed,
-            0.0f);
 
        
         // ** 좌측 컨트롤키를 입력한다면

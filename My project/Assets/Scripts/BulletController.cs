@@ -50,8 +50,13 @@ public class BulletController : MonoBehaviour
 
         // ** collision = 충돌한 대상
         // ** 충돌한 대상을 삭제한다.
-        Destroy(collision.transform.gameObject);
-
+        if (collision.transform.tag != "wall")
+        {
+            Destroy(collision.transform.gameObject);
+           
+        }
+        else
+            Destroy(this.gameObject);
         // ** 총알의 충돌 횟수가 0이 되면 총알 삭제
         if (hp == 0)
             Destroy(this.gameObject);

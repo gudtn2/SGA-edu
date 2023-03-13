@@ -980,8 +980,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  BulletPrefab: {fileID: 696694350480120847, guid: a075124120da94e47af38f5c7a8293dc, type: 3}
-  fxPrefab: {fileID: 1892078723244562, guid: fe912405237475545904a959db75fdcd, type: 3}
   stageBack:
   - {fileID: 0}
   - {fileID: 0}
@@ -990,6 +988,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  DirLeft: 0
+  DirRight: 0
 --- !u!1 &807003571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,7 +1341,7 @@ GameObject:
   - component: {fileID: 2084291837}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

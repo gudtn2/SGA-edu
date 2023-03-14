@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackGroundController : MonoBehaviour
 {
-    // ** 각각의 BackGround가 모여있는 계층구조의 최상위 객체(부모)
+    // ** BackGround 가 모여있는 계층구조의 최상위 객체(부모)
     private Transform parent;
 
     // ** Sprite를 포함하고 있는 구성요소
@@ -16,21 +16,23 @@ public class BackGroundController : MonoBehaviour
     // ** 생성지점
     private float endPoint;
 
-    // ** 삭제지점
+    // ** 삭제 지점.
     private float exitPoint;
 
-    // ** 이미지 이동 속도
+    // ** 이미지 이동속도
     public float Speed;
 
     // ** 플레이어 정보
     private GameObject player;
     private PlayerController playerController;
 
-    // **  움직임 정보
+    // ** 움직임 정보
     private Vector3 movemane;
 
-    // ** 이미지가 중앙 위치에 정상적으로 노충될 수 있도록 하기 위한 완충역할
+    // ** 이미지가 중앙 위치에 정상적으로 노출될 수 있도록 하기 위한 완충역할.
     private Vector3 offset = new Vector3(0.0f, 7.5f, 0.0f);
+
+    private GameObject Test;
 
     private void Awake()
     {
@@ -43,7 +45,7 @@ public class BackGroundController : MonoBehaviour
         // ** 현재 이미지를 담고있는 구성요소를 받아온다.
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // ** 플레이어 이미지를 담고잇는 구성요소를 받아온다.
+        // ** 플레이어 이미지를 담고있는 구성요소를 받아온다.
         playerController = player.GetComponent<PlayerController>();
     }
 
@@ -52,35 +54,33 @@ public class BackGroundController : MonoBehaviour
         // ** 구성요소에 포함된 이미지를 받아온다.
         sprite = spriteRenderer.sprite;
 
-        // ** 시작지점을 설정
+        // ** 시작지점을 설정.
         endPoint = sprite.bounds.size.x * 0.5f + transform.position.x;
 
-        // ** 종료지점을 설정
+        /*
+        Test = new GameObject("Gozmo");
+        Test.AddComponent<MyGizmo>();
+        Test.transform.position = new Vector3(endPoint, 0.0f, 0.0f);
+         */
+
+
+        // ** 종료지점을 설정.
         exitPoint = -(sprite.bounds.size.x * 0.5f) + player.transform.position.x;
     }
 
     void Update()
     {
         // ** 이동정보 셋팅
-        movemane = new Vector3(Input.GetAxisRaw("Horizontal") * Time.deltaTime * Speed + offset.x, player.transform.position.y + offset.y, 0.0f + offset.z);
+        movemane = new Vector3(
+            Input.GetAxisRaw("Horizontal") * Time.deltaTime * Speed + offset.x,
+            0.0f, 0.0f);
 
-        // ** 플레이어가 바라보고 있는 방향에 따라 분기됨
-
-        if (ControllerManager.GetInstance().DirLeft)
-        {// ** 좌측 이동
-         // ** 이동정보 적용
-            
+        // ** singleton
+        if (ControllerManager.GetInstance().DirRight)
+        {
+            transform.position -= movemane;
             endPoint -= movemane.x;
         }
-
-        if (ControllerManager.GetInstance().DirRight)
-        {// ** 우측 이동
-                transform.position -= movemane;          
-        }        
-
-        // ** 이동정보 적용
-        
-       
 
         // ** 동일한 이미지 복사
         if (player.transform.position.x + (sprite.bounds.size.x * 0.5f) + 1 > endPoint)
@@ -88,14 +88,16 @@ public class BackGroundController : MonoBehaviour
             // ** 이미지를 복제한다.
             GameObject Obj = Instantiate(this.gameObject);
 
-            // ** 복제된 이미지의 부모를 설정한다
+            // ** 본제된 이미지의 부모를 설정한다.
             Obj.transform.parent = parent.transform;
 
             // ** 복제된 이미지의 이름을 설정한다.
             Obj.transform.name = transform.name;
 
-            // ** 복제된 이미지 위치를 설정한다.
-            Obj.transform.position = new Vector3(endPoint + 25.0f, 0.0f, 0.0f);
+            // ** 복제된 이미지의 위치를 설정한다.
+            Obj.transform.position = new Vector3(
+                endPoint + 25.0f,
+                0.0f, 0.0f);
 
             // ** 시작지점을 변경한다.
             endPoint += endPoint + 25.0f;
@@ -103,9 +105,6 @@ public class BackGroundController : MonoBehaviour
 
         // ** 종료지점에 도달하면 삭제한다.
         if (transform.position.x + (sprite.bounds.size.x * 0.5f) - 2 < exitPoint)
-        {
             Destroy(this.gameObject);
-        }
-
     }
 }

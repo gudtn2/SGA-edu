@@ -19,4 +19,5 @@ public class ControllerManager
 
     public float BulletSpeed = 10.0f;
     public float PlayerSpeed = 5.0f;
+    public float Player_HP = 100;
 }

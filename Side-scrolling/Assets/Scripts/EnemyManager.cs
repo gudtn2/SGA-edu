@@ -22,6 +22,7 @@ public class EnemyManager : MonoBehaviour
 
     // ** Enemy로 사용할 원형 객체
     private GameObject Prefab;
+    private GameObject HPPrefab;
 
     // ** 플레이어의 누적 이동 거리
     public float Distance;
@@ -43,6 +44,7 @@ public class EnemyManager : MonoBehaviour
 
             // ** Enemy로 사용할 원형 객체
             Prefab = Resources.Load("Prefabs/Enemy/Enemy") as GameObject;
+            HPPrefab = Resources.Load("Prefabs/HP") as GameObject;
         }
     }
 
@@ -53,6 +55,13 @@ public class EnemyManager : MonoBehaviour
         {
             // ** Enemy 원형객체를 복제한다.
             GameObject Obj = Instantiate(Prefab);
+
+            // ** Enemy HP UI 복제.
+            GameObject Bar = Instantiate(HPPrefab);
+
+            // ** 복제된 UI를 캔버스에 위치시킨다.
+            Bar.transform.parent = GameObject.Find("EnemyHPCanvas").transform;
+
 
             // ** Enemy 작동 스크립트 포함.
             //Obj.AddComponent<EnemyController>();
@@ -69,6 +78,12 @@ public class EnemyManager : MonoBehaviour
 
             // ** 클론의 계층구조 설정.
             Obj.transform.parent = Parent.transform;
+
+            // ** UI 캑체가 들고있는 스크립트에 접근.
+            EnemyHpBar EnemhpBar = Bar.GetComponent<EnemyHpBar>();
+
+            // ** 스크립트의 Target 을 지금 생성된 Enemy로 셋팅.
+            EnemhpBar.Target = Obj;
 
             // ** 1.5초 휴식.
             yield return new WaitForSeconds(1.5f);

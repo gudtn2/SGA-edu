@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerHPBar : MonoBehaviour
 {
+
     private Slider HPBar;
+
     private void Awake()
     {
         HPBar = GetComponent<Slider>();
@@ -26,8 +28,9 @@ public class PlayerHPBar : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            ControllerManager.GetInstance().Player_HP += 5;
+            ControllerManager.GetInstance().Player_HP += 1;
         }
+
 
         HPBar.value = ControllerManager.GetInstance().Player_HP;
 
@@ -36,4 +39,5 @@ public class PlayerHPBar : MonoBehaviour
 
         }
     }
+
 }

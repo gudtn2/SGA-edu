@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // ** 움직이는 속도
-    public float Speed;
+    private float Speed;
 
     // ** 움직임을 저장하는 벡터
     private Vector3 Movement;
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         // ** 속도를 초기화.
-        Speed = ControllerManager.GetInstance().PlayerSpeed;
+        Speed = 5.0f;
         
         // ** 초기값 셋팅
         onAttack = true;        

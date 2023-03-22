@@ -12,6 +12,7 @@ public class SidebarController : MonoBehaviour
     {
         Anim = sidebar.GetComponent<Animator>();
     }
+
     void Start()
     {
         check = false;

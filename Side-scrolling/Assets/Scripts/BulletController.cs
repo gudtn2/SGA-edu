@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     // ** 총알이 날아가는 속도
-    private float Speed;
+    public float Speed;
 
     // ** 총알이 충돌한 횟수
     private int hp;

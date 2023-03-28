@@ -62,24 +62,29 @@ public class BackGroundController : MonoBehaviour
          */
 
         // ** 종료지점을 설정.
-        exitPoint = -(sprite.bounds.size.x * 0.5f) + player.transform.position.x;
+        exitPoint = -(sprite.bounds.size.x * 0.5f);
     }
 
     void Update()
     {
         // ** 이동정보 셋팅
         movemane = new Vector3(
-            5 * Time.deltaTime * Speed + offset.x,
+            3* Time.deltaTime * Speed + offset.x,
             0.0f, 0.0f);
 
         // ** singleton
-        
+        /*
+        if (ControllerManager.GetInstance().DirRight)
+        {
             transform.position -= movemane;
             endPoint -= movemane.x;
-        
+        }
+        */
+        transform.position -= movemane;
+        endPoint -= movemane.x;
 
         // ** 동일한 이미지 복사
-        if (player.transform.position.x + (sprite.bounds.size.x * 1.2f) + 1 > endPoint)
+        if ((sprite.bounds.size.x * 0.5f) + 1 > endPoint)
         {
             // ** 이미지를 복제한다.
             GameObject Obj =  Instantiate(this.gameObject);
@@ -100,7 +105,7 @@ public class BackGroundController : MonoBehaviour
         }
 
         // ** 종료지점에 도달하면 삭제한다.
-        if(transform.position.x + (sprite.bounds.size.x * 1.2f) - 2 < exitPoint)
+        if(transform.position.x + (sprite.bounds.size.x * 0.5f) - 2 < exitPoint)
             Destroy(this.gameObject);
     }
 }

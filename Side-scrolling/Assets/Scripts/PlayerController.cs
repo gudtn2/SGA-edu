@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         playerRenderer = this.GetComponent<SpriteRenderer>();
 
         // ** [Resources] 폴더에서 사용할 리소스를 들고온다.
-        BulletPrefab = Resources.Load("Prefabs/Bullet") as GameObject;
+        BulletPrefab = Resources.Load("Prefabs/Bullet2") as GameObject;
         //fxPrefab = Resources.Load("Prefabs/FX/Smoke") as GameObject;
         fxPrefab = Resources.Load("Prefabs/FX/Hit") as GameObject;
     }
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         // ** 입력받은 값으로 플레이어를 움직인다.
         Movement = new Vector3(
             Hor * Time.deltaTime * Speed,
-            Ver * Time.deltaTime * (Speed * 0.5f),
+            Ver * Time.deltaTime * Speed,
             0.0f);
 
         transform.position += new Vector3(0.0f, Movement.y, 0.0f);
@@ -143,15 +143,15 @@ public class PlayerController : MonoBehaviour
         
 
         // ** 플레이어가 바라보고있는 방향에 따라 이미지 반전 설정.
-        if (Direction < 0)
-        {
-            playerRenderer.flipX = DirLeft = true;
-        }
-        else if (Direction > 0)
-        {
-            playerRenderer.flipX = false;
-            DirRight = true;
-        }
+        //if (Direction < 0)
+        //{
+        //    playerRenderer.flipX = DirLeft = true;
+        //}
+        //else if (Direction > 0)
+        //{
+        //    playerRenderer.flipX = false;
+        //    DirRight = true;
+        //}
 
         if (onAttack)
         {
@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour
         BulletController Controller = Obj.AddComponent<BulletController>();
 
         // ** 총알 스크립트내부의 방향 변수를 현재 플레이어의 방향 변수로 설정 한다.
-        Controller.Direction = new Vector3(Direction, 0.0f, 0.0f);
+        Controller.Direction = new Vector3(1.0f, 0.0f, 0.0f);
 
         // ** 총알 스크립트내부의 FX Prefab을 설정한다.
         Controller.fxPrefab = fxPrefab;
@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
         SpriteRenderer buleltRenderer = Obj.GetComponent<SpriteRenderer>();
 
         // ** 총알의 이미지 반전 상태를 플레이어의 이미지 반전 상태로 설정한다.
-        buleltRenderer.flipY = playerRenderer.flipX;
+        //buleltRenderer.flipY = playerRenderer.flipX;
 
         // ** 모든 설정이 종료되었다면 저장소에 보관한다.
         Bullets.Add(Obj);
@@ -205,7 +205,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        CoolDown = 1.0f;
+        CoolDown = 0.5f;
         onAttack = true;
     }
 

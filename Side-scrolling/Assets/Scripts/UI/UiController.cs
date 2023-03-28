@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class UiController : MonoBehaviour
 {
-    public GameObject SkillCanvus;
+    public GameObject SkillCanvas;
     public bool SkillCanvasActive;
+
 
     void Start()
     {
-        //
         SkillCanvasActive = true;
-        SkillCanvus.SetActive(SkillCanvasActive);
+        SkillCanvas.SetActive(SkillCanvasActive);
     }
+
 
     public void onSkillCanvasActive()
     {
         SkillCanvasActive = !SkillCanvasActive;
-        SkillCanvus.SetActive(SkillCanvasActive);
+        SkillCanvas.SetActive(SkillCanvasActive);
     }
 }

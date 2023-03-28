@@ -70,8 +70,8 @@ public class EnemyManager : MonoBehaviour
             Obj.transform.position = new Vector3(
                 18.0f, Random.Range(-8.2f, -5.2f), 0.0f);
 
-            Obj.transform.position = new Vector3(
-                 18.0f, -3.5f, 0.0f);
+            //Obj.transform.position = new Vector3(
+            //     18.0f, -3.5f, 0.0f);
 
             // ** 클론의 이름 초기화.
             Obj.transform.name = "Enemy";

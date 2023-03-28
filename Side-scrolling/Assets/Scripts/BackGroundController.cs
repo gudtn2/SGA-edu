@@ -69,24 +69,23 @@ public class BackGroundController : MonoBehaviour
     {
         // ** 이동정보 셋팅
         movemane = new Vector3(
-            Input.GetAxisRaw("Horizontal") * Time.deltaTime * Speed + offset.x,
+            5 * Time.deltaTime * Speed + offset.x,
             0.0f, 0.0f);
 
         // ** singleton
-        if (ControllerManager.GetInstance().DirRight)
-        {
+        
             transform.position -= movemane;
             endPoint -= movemane.x;
-        }
+        
 
         // ** 동일한 이미지 복사
-        if (player.transform.position.x + (sprite.bounds.size.x * 0.5f) + 1 > endPoint)
+        if (player.transform.position.x + (sprite.bounds.size.x * 1.2f) + 1 > endPoint)
         {
             // ** 이미지를 복제한다.
             GameObject Obj =  Instantiate(this.gameObject);
 
             // ** 본제된 이미지의 부모를 설정한다.
-            Obj.transform.parent = parent.transform;
+            Obj.transform.SetParent(parent.transform);
 
             // ** 복제된 이미지의 이름을 설정한다.
             Obj.transform.name = transform.name;
@@ -101,7 +100,7 @@ public class BackGroundController : MonoBehaviour
         }
 
         // ** 종료지점에 도달하면 삭제한다.
-        if(transform.position.x + (sprite.bounds.size.x * 0.5f) - 2 < exitPoint)
+        if(transform.position.x + (sprite.bounds.size.x * 1.2f) - 2 < exitPoint)
             Destroy(this.gameObject);
     }
 }

@@ -15,7 +15,7 @@ C:/Users/SGA/Desktop/SGA-edu/Side-scrolling
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-60668
+56885
 Successfully changed project path to: C:/Users/SGA/Desktop/SGA-edu/Side-scrolling
 C:/Users/SGA/Desktop/SGA-edu/Side-scrolling
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,11 +47,11 @@ C:/Users/SGA/Desktop/SGA-edu/Side-scrolling
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [15044] Host "[IP] 192.168.0.99 [Port] 0 [Flags] 2 [Guid] 2434856568 [EditorId] 2434856568 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-HQKDT44) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [9320] Host "[IP] 192.168.0.99 [Port] 0 [Flags] 2 [Guid] 3069977055 [EditorId] 3069977055 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-HQKDT44) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [15044] Host "[IP] 192.168.0.99 [Port] 0 [Flags] 2 [Guid] 2434856568 [EditorId] 2434856568 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-HQKDT44) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [9320] Host "[IP] 192.168.0.99 [Port] 0 [Flags] 2 [Guid] 3069977055 [EditorId] 3069977055 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-HQKDT44) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 29.85 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 24.37 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.19f1 (c9714fde33b6)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.19f1/Editor/Data/Resources/UnitySubsystems
@@ -67,78 +67,78 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.19f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.19f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.19f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56868
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56524
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.19f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.19f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004134 seconds.
+Registered in 0.004121 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 210 ms
-Refreshing native plugins compatible for Editor in 22.52 ms, found 2 plugins.
+Android Extension - Scanning For ADB Devices 166 ms
+Refreshing native plugins compatible for Editor in 32.37 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.836 seconds
+- Completed reload, in  0.610 seconds
 Domain Reload Profiling:
-	ReloadAssembly (836ms)
-		BeginReloadAssembly (49ms)
+	ReloadAssembly (611ms)
+		BeginReloadAssembly (51ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (619ms)
-			LoadAssemblies (48ms)
+			CreateAndSetChildDomain (0ms)
+		EndReloadAssembly (480ms)
+			LoadAssemblies (50ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (192ms)
+			SetupTypeCache (83ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (19ms)
-			SetupLoadedEditorAssemblies (371ms)
+			SetupLoadedEditorAssemblies (341ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (256ms)
+				InitializePlatformSupportModulesInManaged (215ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (23ms)
+				RefreshPlugins (32ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (59ms)
-				ProcessInitializeOnLoadMethodAttributes (33ms)
+				ProcessInitializeOnLoadAttributes (63ms)
+				ProcessInitializeOnLoadMethodAttributes (29ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001391 seconds.
+Registered in 0.001340 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 0.30 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.607 seconds
+- Completed reload, in  0.596 seconds
 Domain Reload Profiling:
-	ReloadAssembly (608ms)
-		BeginReloadAssembly (72ms)
+	ReloadAssembly (597ms)
+		BeginReloadAssembly (71ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (13ms)
-		EndReloadAssembly (458ms)
+			CreateAndSetChildDomain (14ms)
+		EndReloadAssembly (448ms)
 			LoadAssemblies (46ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (111ms)
+			SetupTypeCache (127ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (26ms)
-			SetupLoadedEditorAssemblies (245ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (218ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (13ms)
+				InitializePlatformSupportModulesInManaged (12ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (0ms)
-				BeforeProcessingInitializeOnLoad (33ms)
-				ProcessInitializeOnLoadAttributes (180ms)
-				ProcessInitializeOnLoadMethodAttributes (14ms)
-				AfterProcessingInitializeOnLoad (4ms)
+				BeforeProcessingInitializeOnLoad (36ms)
+				ProcessInitializeOnLoadAttributes (142ms)
+				ProcessInitializeOnLoadMethodAttributes (21ms)
+				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (4ms)
@@ -146,12 +146,12 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.28 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.30 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1424 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 16 unused Assets / (56.2 KB). Loaded Objects now: 1900.
-Memory consumption went from 72.2 MB to 72.2 MB.
-Total: 2.521500 ms (FindLiveObjects: 0.087800 ms CreateObjectMapping: 0.022600 ms MarkObjects: 2.330300 ms  DeleteObjects: 0.080100 ms)
+Unloading 1490 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 19 unused Assets / (21.9 KB). Loaded Objects now: 1971.
+Memory consumption went from 76.5 MB to 76.5 MB.
+Total: 1.877000 ms (FindLiveObjects: 0.092000 ms CreateObjectMapping: 0.024400 ms MarkObjects: 1.744800 ms  DeleteObjects: 0.015100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -165,262 +165,22 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 8993.160133 seconds.
-  path: Assets/Textures/Skills/50-Magic-Resist.png
-  artifactKey: Guid(9345211fd172c4e75985765a853af697) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/50-Magic-Resist.png using Guid(9345211fd172c4e75985765a853af697) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '816c16380eae3698dd1a646a7205a5da') in 0.154664 seconds 
+  Time since last request: 4975.746424 seconds.
+  path: Assets/Pixel Fantasy Caves/mainlev_build.asset
+  artifactKey: Guid(c06f2756578d8724fa4d468306278018) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixel Fantasy Caves/mainlev_build.asset using Guid(c06f2756578d8724fa4d468306278018) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '542767b9f1f9ec87ae7e351d30786dde') in 0.059635 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Textures/Skills/58-Fire-Arrow.png
-  artifactKey: Guid(7b9c727dbbf954b6c9939d0af35bf2eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/58-Fire-Arrow.png using Guid(7b9c727dbbf954b6c9939d0af35bf2eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '504cd7d2f65ede3a9ce152ab4ba2c7cc') in 0.067509 seconds 
+  Time since last request: 11.244346 seconds.
+  path: Assets/Pixel Fantasy Caves/Sliced
+  artifactKey: Guid(d8adb517ca8695442b36776340a1ec8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixel Fantasy Caves/Sliced using Guid(d8adb517ca8695442b36776340a1ec8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e4fd411c44a42d731e7c19bab029fa4') in 0.004958 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Textures/Skills/73-Return.png
-  artifactKey: Guid(d5fc92820481b43a2986103f885cef46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/73-Return.png using Guid(d5fc92820481b43a2986103f885cef46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '691d94fc0dc734d0a8249300184d2454') in 0.021454 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Textures/Skills/59-Sparking-Arrow.png
-  artifactKey: Guid(73e20d521b16b46e2b9bbf45cb7bb985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/59-Sparking-Arrow.png using Guid(73e20d521b16b46e2b9bbf45cb7bb985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a264052b159072913a8068dd3fb9516a') in 0.020695 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/Textures/Skills/60-Cursed-Arrow.png
-  artifactKey: Guid(c81f834ae27f44bc3961ae6da1ea141b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/60-Cursed-Arrow.png using Guid(c81f834ae27f44bc3961ae6da1ea141b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e78794a42067efc955898974160bee5') in 0.017711 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Textures/Skills/55-Patience.png
-  artifactKey: Guid(390fc2a0b23d845a59c0ed526992fda5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/55-Patience.png using Guid(390fc2a0b23d845a59c0ed526992fda5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cde5623dce7d2077bea2afdcc1bef545') in 0.018990 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Textures/Skills/63-Power-Strike.png
-  artifactKey: Guid(77fb1396afd204cba852e21347033826) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/63-Power-Strike.png using Guid(77fb1396afd204cba852e21347033826) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b94b154742872c9fe4d5244118a6bee1') in 0.018006 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Textures/Skills/62-Poison.png
-  artifactKey: Guid(901e59e906bac4b629edd4edf407a6a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/62-Poison.png using Guid(901e59e906bac4b629edd4edf407a6a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5880a5e52525693b115989ab02191f37') in 0.016321 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 89.960664 seconds.
-  path: Assets/Textures/Skills/74-Satisfaction.png
-  artifactKey: Guid(f3147281d18564c83aaab4ebae0b229e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/74-Satisfaction.png using Guid(f3147281d18564c83aaab4ebae0b229e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a476bdbee29f880869ef3ec8f97176ad') in 0.042631 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Textures/Skills/83-Toxic-Pollen.png
-  artifactKey: Guid(3b3fba9c129394ab6a6de4e1cfd7df8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/83-Toxic-Pollen.png using Guid(3b3fba9c129394ab6a6de4e1cfd7df8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bea934eb7e749e8b4e9788723d1fcb7') in 0.030628 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Textures/Skills/94-Snowman.png
-  artifactKey: Guid(32250abfcff114351bc3e4b4c26e5ce8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/94-Snowman.png using Guid(32250abfcff114351bc3e4b4c26e5ce8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c932b6d661be1be5e97d8b22592530f6') in 0.022100 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Textures/Skills/101-Posses.png
-  artifactKey: Guid(5f64e1f39058141bca9230e4bdd31aa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/101-Posses.png using Guid(5f64e1f39058141bca9230e4bdd31aa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44d1776aec99ad14944f33ec8c55bec8') in 0.019019 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Textures/Skills/121-First-Aid.png
-  artifactKey: Guid(cb18d13b0e6f84b879fb46bdda5c5366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/121-First-Aid.png using Guid(cb18d13b0e6f84b879fb46bdda5c5366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9b480cf94aefd8ba4c83ff83d9b28cb') in 0.019828 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/Textures/Skills/86-Unsun.png
-  artifactKey: Guid(67bf23377ee844f0284a3d974b49c0c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/86-Unsun.png using Guid(67bf23377ee844f0284a3d974b49c0c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6598bdfc19054bb9343df63d9e3171f7') in 0.018046 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Textures/Skills/104-Bone-Trap.png
-  artifactKey: Guid(ef65aab13e15a4980bc0a51d43ee69e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/104-Bone-Trap.png using Guid(ef65aab13e15a4980bc0a51d43ee69e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49f2d768fbfd7cdb9a3fd230ab3810f0') in 0.017692 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/Textures/Skills/85-Trepidation.png
-  artifactKey: Guid(deb255acb3759467cbec577957a9403e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/85-Trepidation.png using Guid(deb255acb3759467cbec577957a9403e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '292e0d44f5a40cd11354286a72155374') in 0.018868 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Textures/Skills/116-Fire-Pillar.png
-  artifactKey: Guid(0c3d8ebc26e1b4293a424fbae11829f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/116-Fire-Pillar.png using Guid(0c3d8ebc26e1b4293a424fbae11829f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6291ade42d03386ee528f6833f3cd988') in 0.018177 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Textures/Skills/88-Snow-Ball.png
-  artifactKey: Guid(eba71256cef5a4e40be283fa67af62ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/88-Snow-Ball.png using Guid(eba71256cef5a4e40be283fa67af62ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a9436201015d1e5d69eefd185964fec') in 0.019064 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Textures/Skills/91-Ice-Nova.png
-  artifactKey: Guid(e5836b8369f9441d2be3b4b36053b6d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/91-Ice-Nova.png using Guid(e5836b8369f9441d2be3b4b36053b6d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99d26f51380def10871734a1c41d7d09') in 0.019582 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/Textures/Skills/77-Storm-Path.png
-  artifactKey: Guid(a65312b014ecf4b4b9b62bd2866a268c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/77-Storm-Path.png using Guid(a65312b014ecf4b4b9b62bd2866a268c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92f1318dde3c0707b592c87b16086617') in 0.019931 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Textures/Skills/106-Bear-Trap.png
-  artifactKey: Guid(ef1c6f2d47db5475aa5f904dcfb8f9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/106-Bear-Trap.png using Guid(ef1c6f2d47db5475aa5f904dcfb8f9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d76112c35d565f5efe0c134bb700f3c') in 0.018582 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Textures/Skills/80-Throw-Stone.png
-  artifactKey: Guid(412c54c27f8174dc99d02b3622fce8f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/80-Throw-Stone.png using Guid(412c54c27f8174dc99d02b3622fce8f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc76c11c58bae70a6db6b06b0dede580') in 0.020352 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Textures/Skills/93-Hailstrom.png
-  artifactKey: Guid(8f78f97a2d8e7498388d20b064d09528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/93-Hailstrom.png using Guid(8f78f97a2d8e7498388d20b064d09528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ffa1b5e8a930ef3fdde5e2990f05ff4') in 0.020099 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Textures/Skills/113-Rage.png
-  artifactKey: Guid(3519c3c0b82d14d4d9769f1dc86904db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/113-Rage.png using Guid(3519c3c0b82d14d4d9769f1dc86904db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99878ee804ef13ee74a6759de173ee34') in 0.018493 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Textures/Skills/84-Termor.png
-  artifactKey: Guid(537ecccd3eaf24df5b9acf5843f0e507) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/84-Termor.png using Guid(537ecccd3eaf24df5b9acf5843f0e507) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '623ad3a379975cf928f603bb77b19351') in 0.018844 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Textures/Skills/87-Waver.png
-  artifactKey: Guid(fd27e3f6b435d4425a4e5034f96cdef3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/87-Waver.png using Guid(fd27e3f6b435d4425a4e5034f96cdef3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba84c187778fd17f25ba5a96118dbbaa') in 0.017605 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Textures/Skills/107-Devil-Pack.png
-  artifactKey: Guid(9bc94ac83fc474d129af7e1942f50fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/107-Devil-Pack.png using Guid(9bc94ac83fc474d129af7e1942f50fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cfec01989033ae331378f40dc74dd50') in 0.018748 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Textures/Skills/95-Wheater-Report.png
-  artifactKey: Guid(2903baaa769f94e9db470024deac46e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/95-Wheater-Report.png using Guid(2903baaa769f94e9db470024deac46e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c30bfae165b434b833d3369e7217a61') in 0.020134 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Textures/Skills/111-Blue-Potion.png
-  artifactKey: Guid(2a280aa90446b40508fa33c8d702f8f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/111-Blue-Potion.png using Guid(2a280aa90446b40508fa33c8d702f8f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d6bd916f04876211c1956068ad69702') in 0.018781 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Textures/Skills/118-Kick.png
-  artifactKey: Guid(bcc4e92fe2b1d4c87a04d811eec79e7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/118-Kick.png using Guid(bcc4e92fe2b1d4c87a04d811eec79e7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '217459946b87d42abc134e48feaf6429') in 0.018560 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Textures/Skills/98-Enchant-Wind.png
-  artifactKey: Guid(a5e67256a376c45b58888f8611060022) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/98-Enchant-Wind.png using Guid(a5e67256a376c45b58888f8611060022) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60c18b844849c5645d0957b0ccce2418') in 0.020543 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Textures/Skills/76-Shove-Stab.png
-  artifactKey: Guid(cf8fbf2de1b1b4d2dabcb7682d8ba460) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/76-Shove-Stab.png using Guid(cf8fbf2de1b1b4d2dabcb7682d8ba460) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5eb9dddbedc77c3a654cd4bb9b7e53d9') in 0.019162 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.885413 seconds.
-  path: Assets/Textures/Skills/122-Trick-Dead.png
-  artifactKey: Guid(2b0a4df3dbba1408bb9f322d40c4e86a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/122-Trick-Dead.png using Guid(2b0a4df3dbba1408bb9f322d40c4e86a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a452f2c458cb8b21a26f5145a6bbbcfe') in 0.033238 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Textures/Skills/128-Spear-Stab.png
-  artifactKey: Guid(ca3860a6754f24499ba86e277a813d99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/128-Spear-Stab.png using Guid(ca3860a6754f24499ba86e277a813d99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12f85e64bcf55b517df7fa07b6f79f3d') in 0.020738 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Textures/Skills/130-Brandish.png
-  artifactKey: Guid(32a876727f5564e62b50da0c88234cfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/130-Brandish.png using Guid(32a876727f5564e62b50da0c88234cfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dea0fbedb472400a6a8ae9dc840f30a0') in 0.018146 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Textures/Skills/133-Gamble.png
-  artifactKey: Guid(281a946ab0b1b496896813c70c9c31f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/133-Gamble.png using Guid(281a946ab0b1b496896813c70c9c31f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4734d365a360793828dd13cd5145592') in 0.019095 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Textures/Skills/127-Hide.png
-  artifactKey: Guid(9cdcacd07f7cb48bca46eada0fecaa66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/127-Hide.png using Guid(9cdcacd07f7cb48bca46eada0fecaa66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4dcc35f4bd152bf335b994b8a7602b6a') in 0.017589 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.129057 seconds.
-  path: Assets/Textures/Skills/134-Wager.png
-  artifactKey: Guid(339712a98beb54c56992d7be912330ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/134-Wager.png using Guid(339712a98beb54c56992d7be912330ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ae20fa7315ffd4262ba083aaae5ff82') in 0.030130 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Textures/Skills/143-Necromancy.png
-  artifactKey: Guid(ae810be1fcb5d4c1c9cc702c5cd72a4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/143-Necromancy.png using Guid(ae810be1fcb5d4c1c9cc702c5cd72a4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '380844a846950e157ec828f837d93aac') in 0.026985 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Textures/Skills/150-Phycomancy.png
-  artifactKey: Guid(fa3ab781962ed482b80a780752f5f33d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/150-Phycomancy.png using Guid(fa3ab781962ed482b80a780752f5f33d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f10af4e2c056b672e1e13310ecc8c072') in 0.020539 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/Textures/Skills/141-Hydromancy.png
-  artifactKey: Guid(7d167c2382838483989a9c654ee5a072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/141-Hydromancy.png using Guid(7d167c2382838483989a9c654ee5a072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '502466ec93b0ad96e7d5bc2a6601a1b8') in 0.020481 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Textures/Skills/146-Aeromancy.png
-  artifactKey: Guid(40c351e12b03e45d5b9a6f523dd372f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/146-Aeromancy.png using Guid(40c351e12b03e45d5b9a6f523dd372f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '419ce9abb3cb4cd574de9d5b20569818') in 0.026770 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Textures/Skills/145-Electromancy.png
-  artifactKey: Guid(e52a8ab58cb3f4de68874cf58e6a2d39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Skills/145-Electromancy.png using Guid(e52a8ab58cb3f4de68874cf58e6a2d39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '858e14692df25197a22e480ff105572a') in 0.029182 seconds 
+  Time since last request: 0.098344 seconds.
+  path: Assets/Pixel Fantasy Caves/Sliced/mainlev_build.png
+  artifactKey: Guid(f3431b64a116bf248a3f497144e67b13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixel Fantasy Caves/Sliced/mainlev_build.png using Guid(f3431b64a116bf248a3f497144e67b13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22371e5b0c2dc6631fa348af2308b29e') in 0.989104 seconds 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
 Process exiting

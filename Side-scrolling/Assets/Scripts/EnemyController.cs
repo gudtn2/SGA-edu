@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         Movement = ControllerManager.GetInstance().DirRight ? 
-            new Vector3(Speed + 1.0f, 0.0f, 0.0f) : new Vector3(Speed, 0.0f, 0.0f);
+            new Vector3(Speed, 0.0f, 0.0f) : new Vector3(Speed, 0.0f, 0.0f);
 
         float Distance = Vector3.Distance(Target.transform.position, transform.position);
 

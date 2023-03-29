@@ -7,6 +7,7 @@ TagManager:
   - wall
   - FxTemporaire
   - Bullet
+  - Item
   layers:
   - Default
   - TransparentFX

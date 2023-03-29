@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         playerRenderer = this.GetComponent<SpriteRenderer>();
 
         // ** [Resources] 폴더에서 사용할 리소스를 들고온다.
-        BulletPrefab = Resources.Load("Prefabs/Bullet2") as GameObject;
+        BulletPrefab = Resources.Load("Prefabs/Bullet3") as GameObject;
         //fxPrefab = Resources.Load("Prefabs/FX/Smoke") as GameObject;
         fxPrefab = Resources.Load("Prefabs/FX/Hit") as GameObject;
     }
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         // ** 속도를 초기화.
-        Speed = 5.0f;
+        Speed = 8.0f;
         
         // ** 초기값 셋팅
         onAttack = true;        
@@ -112,13 +112,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             // ** 플레이어의 좌표가 0.1f 보다 작을때 플레이어만 움직인다.
-            if (transform.position.x < 0.1f)
+          
                 transform.position += Movement;
-            else
-            {
+
                 ControllerManager.GetInstance().DirRight = true;
                 ControllerManager.GetInstance().DirLeft = false;
-            }
+            
         }
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
@@ -132,9 +131,20 @@ public class PlayerController : MonoBehaviour
                 transform.position += Movement;
         }
 
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        {
+            if (transform.position.y < 6.5f)
+                transform.position += Movement;
 
+        }
 
-        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || 
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        {
+            if (transform.position.y > -10.0f)
+                transform.position += Movement;
+        }
+
+            if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || 
             Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
         {
             ControllerManager.GetInstance().DirRight = false;
@@ -179,7 +189,7 @@ public class PlayerController : MonoBehaviour
         GameObject Obj = Instantiate(BulletPrefab);
 
         // ** 복제된 총알의 위치를 현재 플레이어의 위치로 초기화한다.
-        Obj.transform.position = transform.position;
+        Obj.transform.position = transform.position + Vector3.right + Vector3.up;
 
         // ** 총알의 BullerController 스크립트를 받아온다.
         BulletController Controller = Obj.AddComponent<BulletController>();

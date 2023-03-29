@@ -51,7 +51,7 @@ public class BulletControll : MonoBehaviour
             transform.eulerAngles = new Vector3(
                 0.0f, 0.0f, fAngle);
         }
-
+         
         // ** 방향으로 속도만큼 위치를 변경
         transform.position += Direction * Speed * Time.deltaTime;
     }
@@ -93,6 +93,6 @@ public class BulletControll : MonoBehaviour
 
     public float getAngle(Vector3 from, Vector3 to)
     {
-        return Quaternion.FromToRotation(Vector3.down, to - from).eulerAngles.z;
+       return Quaternion.FromToRotation(Vector3.down, to - from).eulerAngles.z;
     }
 }

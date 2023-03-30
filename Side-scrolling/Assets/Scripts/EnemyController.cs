@@ -15,11 +15,18 @@ public class EnemyController : MonoBehaviour
     private bool Attack;
     private bool SkillAttack;
 
+    SpriteRenderer spriteRenderer;
+    Rigidbody2D rigid;
+
     private void Awake()
     {
         Target = GameObject.Find("Player");
 
         Anim = GetComponent<Animator>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        rigid = GetComponent<Rigidbody2D>();
+        
     }
 
     void Start()
@@ -70,8 +77,9 @@ public class EnemyController : MonoBehaviour
     {
         if(collision.tag == "Bullet")
         {
+            
             --HP;
-
+            Invoke ("OnDamage", 0.1f);
             if(HP <= 0 )
             {
                 Anim.SetTrigger("Die");
@@ -93,8 +101,11 @@ public class EnemyController : MonoBehaviour
         CoolDown = 5.0f;
         SkillAttack = true;
     }
-
-
+    void OnDamage()
+    {
+        spriteRenderer.color = new Color(1, 1, 1, 0.4f);
+    }
+ 
     private void DestroyEnemy()
     {
         Destroy(gameObject, 0.016f);

@@ -9,11 +9,7 @@ public class Item : MonoBehaviour
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-        rigid.velocity = Vector2.left * 0.1f;
+        rigid.velocity = Vector2.left * 1.0f;
     }
 
-    void Update()
-    {
-        
-    }
 }

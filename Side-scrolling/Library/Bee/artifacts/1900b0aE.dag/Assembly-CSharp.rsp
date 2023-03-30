@@ -365,6 +365,7 @@
 "Assets/Scripts/ButtonController.cs"
 "Assets/Scripts/CameraController.cs"
 "Assets/Scripts/ControllerManager.cs"
+"Assets/Scripts/Enemy.cs"
 "Assets/Scripts/EnemyController.cs"
 "Assets/Scripts/EnemyManager.cs"
 "Assets/Scripts/Item.cs"

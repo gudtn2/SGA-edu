@@ -73,7 +73,6 @@ public class BulletControll : MonoBehaviour
         if (collision.transform.tag == "wall")
         {
             Destroy(this.gameObject);
-            ControllerManager.GetInstance().Enemy_Kill += 1;
         }
         else
         {

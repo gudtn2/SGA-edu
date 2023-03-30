@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
     // ** 복제할 FX 원본
     private GameObject fxPrefab;
+    private GameObject fxPrefab2;
+    public GameObject boomEffect;
 
     // 추후 list로 변경
     public GameObject[] stageBack = new GameObject[7];
@@ -53,6 +55,10 @@ public class PlayerController : MonoBehaviour
 
     private float CoolDown;
 
+    public int life;
+    public int score;
+    public int maxPower;
+    public int power;
 
     private void Awake()
     {
@@ -66,6 +72,7 @@ public class PlayerController : MonoBehaviour
         BulletPrefab = Resources.Load("Prefabs/Bullet3") as GameObject;
         //fxPrefab = Resources.Load("Prefabs/FX/Smoke") as GameObject;
         fxPrefab = Resources.Load("Prefabs/FX/Hit") as GameObject;
+        fxPrefab2 = Resources.Load("Prefabs/FX/Sword") as GameObject;
     }
 
     // ** 유니티 기본 제공 함수
@@ -169,7 +176,10 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(OnAttack());
         }
 
-
+        if (Input.GetKey(KeyCode.Space))
+        {
+            animator.SetTrigger("Attack");
+        }
 
         // ** 좌측 쉬프트키를 입력한다면.....
         if (Input.GetKey(KeyCode.LeftShift))
@@ -183,7 +193,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator OnAttack()
     {
         // ** 공격모션을 실행 시킨다.
-        animator.SetTrigger("Attack");
+        //animator.SetTrigger("Attack");
 
         // ** 총알원본을 본제한다.
         GameObject Obj = Instantiate(BulletPrefab);
@@ -247,6 +257,40 @@ public class PlayerController : MonoBehaviour
         // ** 함수가 실행되면 피격모션이 비활성화 된다.
         // ** 함수는 애니매이션 클립의 이벤트 프레임으로 삽입됨.
         onHit = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Bullet")
+        {
+            OnHit();
+        }
+        else if(collision.gameObject.tag == "Enemy")
+        {
+            Item item = collision.gameObject.GetComponent<Item>();
+            switch (item.type)
+            {
+                case "Coin":
+                    score += 1000;
+                    break;
+                case "Power":
+                    if (power == maxPower)
+                        score += 500;
+                    else
+                        power++;
+                    break;
+                case "Boom":
+                    // 이펙트 활성
+                    boomEffect.SetActive(true);
+                    // 적제거
+                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    for(int index = 0; index < enemies.Length; index++)
+                    {
+                        
+                    }
+                    break;
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

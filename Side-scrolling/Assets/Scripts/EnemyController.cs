@@ -103,7 +103,7 @@ public class EnemyController : MonoBehaviour
     }
     void OnDamage()
     {
-        spriteRenderer.color = new Color(1, 1, 1, 0.4f);
+        spriteRenderer.color = new Color(1, 1, 1, 2);
     }
  
     private void DestroyEnemy()

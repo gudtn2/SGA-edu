@@ -37,9 +37,13 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag == "BorderBullet")
             Destroy(gameObject);
-        //else if (collision.gameObject.tag == "PlayerBullet")
+        else if (collision.gameObject.tag == "PlayerBullet")
+        {
+            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+            OnHit(bullet.dmg);
+        }
            
     }
 }

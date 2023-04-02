@@ -6791,7 +6791,7 @@ MonoBehaviour:
   - {fileID: 1104571505}
   - {fileID: 1419952605}
   - {fileID: 845195684}
-  maxSpawnDelay: 1
+  nextSpawnDelay: 0
   curSpawnDelay: 0
   player: {fileID: 1403546320}
   scoreText: {fileID: 344425821}
@@ -6805,6 +6805,8 @@ MonoBehaviour:
   - {fileID: 689140382}
   gameOverSet: {fileID: 404654586}
   objectManager: {fileID: 1529288212}
+  spawnIndex: 0
+  spawnEnd: 0
 --- !u!1 &1808262646
 GameObject:
   m_ObjectHideFlags: 0

@@ -375,6 +375,7 @@
 "Assets/Scripts/new script/Item.cs"
 "Assets/Scripts/new script/ObjectManager.cs"
 "Assets/Scripts/new script/Player.cs"
+"Assets/Scripts/new script/Spawn.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/ScrollUI.cs"
 "Assets/Scripts/UI/PlayerHPBar.cs"

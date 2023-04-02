@@ -9,14 +9,24 @@ public class Player : MonoBehaviour
     public bool isTouchRight;
     public bool isTouchLeft;
 
+    public int life;
+    public int score;
     public float speed;
-    public float power;
+    public int power;
+    public int maxPower;
+    public int boom;
+    public int maxBoom;
     public float maxShotDelay;
     public float curShotDelay;
+    public float bulletSpeed;
 
     public GameObject bulletObjA;
     public GameObject bulletObjB;
+    public GameObject boomEffect;
 
+    public GameManager manager;
+    public bool isHit;
+    public bool isBoomTime;
     Animator anim;
 
     private void Awake()
@@ -28,6 +38,7 @@ public class Player : MonoBehaviour
         Move();
         Fire();
         Reload();
+        Boom();
     }
 
     void Move()
@@ -64,15 +75,15 @@ public class Player : MonoBehaviour
                 //Power One
                 GameObject bullet = Instantiate(bulletObjA, transform.position, transform.rotation);
                 Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
-                rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+                rigid.AddForce(Vector2.right * bulletSpeed, ForceMode2D.Impulse);
                 break;
             case 2:
                 GameObject bulletR = Instantiate(bulletObjA, transform.position + Vector3.up * 0.5f, transform.rotation);
                 GameObject bulletL = Instantiate(bulletObjA, transform.position + Vector3.down * 0.5f, transform.rotation);
                 Rigidbody2D rigidR = bulletR.GetComponent<Rigidbody2D>();
                 Rigidbody2D rigidL = bulletL.GetComponent<Rigidbody2D>();
-                rigidR.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
-                rigidL.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+                rigidR.AddForce(Vector2.right * bulletSpeed, ForceMode2D.Impulse);
+                rigidL.AddForce(Vector2.right * bulletSpeed, ForceMode2D.Impulse);
                 break;
             case 3:
                 GameObject bulletRR = Instantiate(bulletObjA, transform.position + Vector3.up * 0.8f, transform.rotation);
@@ -81,9 +92,9 @@ public class Player : MonoBehaviour
                 Rigidbody2D rigidRR = bulletRR.GetComponent<Rigidbody2D>();
                 Rigidbody2D rigidCC = bulletCC.GetComponent<Rigidbody2D>();
                 Rigidbody2D rigidLL = bulletLL.GetComponent<Rigidbody2D>();
-                rigidRR.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
-                rigidCC.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
-                rigidLL.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+                rigidRR.AddForce(Vector2.right * bulletSpeed, ForceMode2D.Impulse);
+                rigidCC.AddForce(Vector2.right * bulletSpeed, ForceMode2D.Impulse);
+                rigidLL.AddForce(Vector2.right * bulletSpeed, ForceMode2D.Impulse);
                 break;
         }      
 
@@ -93,6 +104,39 @@ public class Player : MonoBehaviour
     void Reload()
     {
         curShotDelay += Time.deltaTime;
+    }
+
+    void Boom()
+    {
+        if (!Input.GetButton("Fire2"))
+            return;
+
+        if (isBoomTime)
+            return;
+        if (boom == 0)
+            return;
+
+        boom--;
+        isBoomTime = true;
+        manager.UpdateBoomIcon(boom);
+
+        // 이펙트켜기
+        boomEffect.SetActive(true);
+        Invoke("OffBoomEffect", 3f);
+        // 적 제거
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int index = 0; index < enemies.Length; index++)
+        {
+            Enemy enemyLogic = enemies[index].GetComponent<Enemy>();
+            enemyLogic.OnHit(1000);
+        }
+
+        // 총알 제거
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+        for (int index = 0; index < enemies.Length; index++)
+        {
+            Destroy(bullets[index]);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -115,6 +159,59 @@ public class Player : MonoBehaviour
                     break;
             }
         }    
+        else if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet")
+        {
+            if (isHit)
+                return;
+
+            isHit = true;
+            life--;
+            manager.UpadateLifeIcon(life);
+
+            if(life == 0)
+            {
+                manager.GameOver();
+            }
+            else
+            {
+                manager.RespawnPlayer();
+            }
+            gameObject.SetActive(false);
+            Destroy(collision.gameObject);
+        }
+        else if(collision.gameObject.tag == "Item")
+        {
+            Item item = collision.gameObject.GetComponent<Item>();
+            switch (item.type)
+            {
+                case "Coin":
+                    score += 1000;
+                    break;
+
+                case "Power":
+                    if (power == maxPower)
+                        score += 500;
+                    else
+                        power++;
+                    break;
+                case "Boom":
+                    if (boom == maxBoom)
+                        score += 500;
+                    else
+                    {
+                        boom++;
+                        manager.UpdateBoomIcon(boom);
+                    }
+                    break;
+            }
+            Destroy(collision.gameObject);
+        }
+    }
+
+    void OffBoomEffect()
+    {
+        boomEffect.SetActive(false);
+        isBoomTime = false;
     }
 
     private void OnTriggerExit2D(Collider2D collision)

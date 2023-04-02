@@ -4001,7 +4001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1265462947
 Transform:
   m_ObjectHideFlags: 0
@@ -4841,7 +4841,8 @@ MonoBehaviour:
   bulletObjA: {fileID: 1956632198338186758, guid: 82caeddf67de0c847992c9f9928b363c, type: 3}
   bulletObjB: {fileID: 8182809672147884192, guid: e0297a2d452a22e4e9c48bb1c31bb18f, type: 3}
   boomEffect: {fileID: 1673205312}
-  manager: {fileID: 1768998964}
+  gameManager: {fileID: 1768998964}
+  objectManager: {fileID: 1529288212}
   isHit: 0
   isBoomTime: 0
 --- !u!95 &1403546329
@@ -6180,6 +6181,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.125
+--- !u!1 &1529288211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1529288213}
+  - component: {fileID: 1529288212}
+  m_Layer: 0
+  m_Name: ObjectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1529288212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529288211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6357e942df65c734c9fbe8dccb516911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLPrefab: {fileID: 7838318219041491134, guid: f07be2d2f1972a3498e3653844372339, type: 3}
+  enemyMPrefab: {fileID: 254357922394996886, guid: 62030cfe2c97b794cbaa22c5676c5f98, type: 3}
+  enemySPrefab: {fileID: 3784820370003601588, guid: d8c56179a17659f41ac3e6fba8bca9a7, type: 3}
+  itemCoinPrefab: {fileID: 2761575441417683474, guid: 9d6437f3c69f54a4585f80d3939bdd42, type: 3}
+  itemPowerPrefab: {fileID: 757529003264523513, guid: 71cc0edba299bb24b82664986d312262, type: 3}
+  itemBoomPrefab: {fileID: 8046811116417784171, guid: 2310aed78b97b8743ac0ecc218bde56a, type: 3}
+  bulletPlayerAPrefab: {fileID: 1956632198338186758, guid: 82caeddf67de0c847992c9f9928b363c, type: 3}
+  bulletPlayerBPrefab: {fileID: 8182809672147884192, guid: e0297a2d452a22e4e9c48bb1c31bb18f, type: 3}
+  bulletEnemyAPrefab: {fileID: 1956632198338186758, guid: ee955aff21e3cca469573418de7e31f1, type: 3}
+  bulletEnemyBPrefab: {fileID: 1956632198338186758, guid: 17afa29b711faf24281634d299c4ec70, type: 3}
+--- !u!4 &1529288213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529288211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1532368284
 GameObject:
   m_ObjectHideFlags: 0
@@ -6723,9 +6778,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyObjs:
-  - {fileID: 3784820370003601588, guid: d8c56179a17659f41ac3e6fba8bca9a7, type: 3}
-  - {fileID: 254357922394996886, guid: 62030cfe2c97b794cbaa22c5676c5f98, type: 3}
-  - {fileID: 7838318219041491134, guid: f07be2d2f1972a3498e3653844372339, type: 3}
+  - 
+  - 
+  - 
   spawnPoints:
   - {fileID: 1935086812}
   - {fileID: 795786823}
@@ -6749,6 +6804,7 @@ MonoBehaviour:
   - {fileID: 342317771}
   - {fileID: 689140382}
   gameOverSet: {fileID: 404654586}
+  objectManager: {fileID: 1529288212}
 --- !u!1 &1808262646
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
     public ObjectManager objectManager;
     public bool isHit;
     public bool isBoomTime;
+
+    public GameObject[] followers;
+
     Animator anim;
 
     private void Awake()
@@ -90,7 +93,7 @@ public class Player : MonoBehaviour
                 rigidR.AddForce(Vector2.right * bulletSpeed, ForceMode2D.Impulse);
                 rigidL.AddForce(Vector2.right * bulletSpeed, ForceMode2D.Impulse);
                 break;
-            case 3:
+            default:
                 GameObject bulletRR = objectManager.MakeObj("BulletPlayerA");
                 bulletRR.transform.position = transform.position + Vector3.right * 1.0f + Vector3.up * 2.5f;
                 GameObject bulletCC = objectManager.MakeObj("BulletPlayerB");
@@ -103,7 +106,7 @@ public class Player : MonoBehaviour
                 rigidRR.AddForce(Vector2.right * bulletSpeed, ForceMode2D.Impulse);
                 rigidCC.AddForce(Vector2.right * bulletSpeed, ForceMode2D.Impulse);
                 rigidLL.AddForce(Vector2.right * bulletSpeed, ForceMode2D.Impulse);
-                break;
+                break;           
         }      
 
         curShotDelay = 0;
@@ -235,7 +238,10 @@ public class Player : MonoBehaviour
                     if (power == maxPower)
                         score += 500;
                     else
+                    {
                         power++;
+                        AddFollower();
+                    }
                     break;
                 case "Boom":
                     if (boom == maxBoom)
@@ -250,11 +256,20 @@ public class Player : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
     }
-
     void OffBoomEffect()
     {
         boomEffect.SetActive(false);
-        isBoomTime = false;
+        isBoomTime = false;        
+    }
+
+    void AddFollower()
+    {
+        if (power == 4)
+            followers[0].SetActive(true);
+        else if (power == 5)
+            followers[1].SetActive(true);
+        else if (power == 6)
+            followers[2].SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

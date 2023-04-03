@@ -25,6 +25,10 @@ public class Enemy : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator anim;
 
+    public int patternIndex;
+    public int curPatternCount;
+    public int[] maxPatternCount;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -35,6 +39,10 @@ public class Enemy : MonoBehaviour
     {
         switch (enemyName)
         {
+            case "B":
+                health = 3000;
+                Invoke("Stop", 3);
+                break;
             case "L":
                 health = 40;
                 break;
@@ -46,8 +54,141 @@ public class Enemy : MonoBehaviour
                 break;
         }
     }
+
+    void Stop()
+    {
+        if (!gameObject.activeSelf)
+            return;
+
+        Rigidbody2D rigid = GetComponent<Rigidbody2D>();
+        rigid.velocity = Vector2.zero;
+
+        Invoke("Think", 2);
+    }
+
+    void Think()
+    {
+        patternIndex = patternIndex == 3 ? 0 : patternIndex + 1;
+        curPatternCount = 0;
+        
+        switch(patternIndex)
+        {
+            case 0:
+                FireFoward();
+                break;
+            case 1:
+                FireShot();
+                break;
+            case 2:
+                FireArc();
+                break;
+            case 3:
+                FireAround();
+                break;
+        }
+    }
+
+    void FireFoward()
+    {
+        // 앞으로 4발 발사
+        GameObject bulletU = objectManager.MakeObj("BulletBossA");
+        bulletU.transform.position = transform.position + Vector3.up * 0.5f;
+        GameObject bulletUU = objectManager.MakeObj("BulletBossA");
+        bulletUU.transform.position = transform.position + Vector3.up * 1.5f;
+        GameObject bulletD = objectManager.MakeObj("BulletBossA");
+        bulletD.transform.position = transform.position + Vector3.down * 0.5f;
+        GameObject bulletDD = objectManager.MakeObj("BulletBossA");
+        bulletDD.transform.position = transform.position + Vector3.down * 1.5f;
+
+        Rigidbody2D rigidU = bulletU.GetComponent<Rigidbody2D>();
+        Rigidbody2D rigidUU = bulletUU.GetComponent<Rigidbody2D>();
+        Rigidbody2D rigidD = bulletD.GetComponent<Rigidbody2D>();
+        Rigidbody2D rigidDD = bulletDD.GetComponent<Rigidbody2D>();
+
+        rigidU.AddForce(Vector2.left * 20, ForceMode2D.Impulse);
+        rigidUU.AddForce(Vector2.left * 20, ForceMode2D.Impulse);
+        rigidD.AddForce(Vector2.left * 20, ForceMode2D.Impulse);
+        rigidDD.AddForce(Vector2.left * 20, ForceMode2D.Impulse);
+
+        // 패턴 카운팅
+        curPatternCount++;
+
+        if(curPatternCount < maxPatternCount[patternIndex])
+            Invoke("FireFoward", 2);
+        else
+            Invoke("Think", 3);
+    }
+
+    void FireShot()
+    {
+        for(int index = 0; index < 5; index++)
+        {
+            GameObject bullet = objectManager.MakeObj("BulletEnemyB");
+            bullet.transform.position = transform.position;
+
+            Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
+            Vector2 dirVec = player.transform.position - transform.position;
+            Vector2 ranVec = new Vector2(Random.Range(0f, 4f), Random.Range(-1.5f, 1.5f));
+            dirVec += ranVec;
+            rigid.AddForce(dirVec.normalized * 12, ForceMode2D.Impulse);
+        }        
+
+        curPatternCount++;
+
+        if (curPatternCount < maxPatternCount[patternIndex])
+            Invoke("FireShot", 1.5f);
+        else
+            Invoke("Think", 3);
+    }
+    void FireArc()
+    {
+        
+        GameObject bullet = objectManager.MakeObj("BulletEnemyA");
+        bullet.transform.position = transform.position;
+        bullet.transform.rotation = Quaternion.identity;
+
+        Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
+        Vector2 dirVec = new Vector2(-1, Mathf.Sin(Mathf.PI * 10 *curPatternCount/maxPatternCount[patternIndex]));
+        rigid.AddForce(dirVec.normalized * 10, ForceMode2D.Impulse);
+        
+        curPatternCount++;
+
+        if (curPatternCount < maxPatternCount[patternIndex])
+            Invoke("FireArc", 0.15f);
+        else
+            Invoke("Think", 3);
+
+    }
+    void FireAround()
+    {
+        int roundNumA = 40;
+        int roundNumB = 30;
+        int roundNum = curPatternCount % 2 == 0 ? roundNumA : roundNumB;
+
+        for (int index = 0; index < roundNumA; index++)
+        {
+            GameObject bullet = objectManager.MakeObj("BulletBossB");
+            bullet.transform.position = transform.position;
+            bullet.transform.rotation = Quaternion.identity;
+
+            Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
+            Vector2 dirVec = new Vector2(Mathf.Sin(Mathf.PI * 2 * index / roundNum), Mathf.Cos(Mathf.PI * 2 * index / roundNum));
+            rigid.AddForce(dirVec.normalized * 5, ForceMode2D.Impulse);
+
+            Vector3 rotVec = Vector3.forward * 360 * index / roundNum + Vector3.forward * 90;
+            bullet.transform.Rotate(rotVec);
+        }        
+        curPatternCount++;
+
+        if (curPatternCount < maxPatternCount[patternIndex])
+            Invoke("FireAround", 0.7f);
+        else
+            Invoke("Think", 3);
+    }
     void Update()
     {
+        if (enemyName == "B")
+            return;
         Fire();
         Reload();
     }
@@ -99,17 +240,24 @@ public class Enemy : MonoBehaviour
             return;
 
         health -= dmg;
-        //spriteRenderer.sprite = sprites[1];
-        //Invoke ("RetrunSprite", 0.1f);
-        anim.SetTrigger("Hit");
-        //Invoke("ReturnAnim", 0.1f);
+        if (enemyName == "B")
+        {
+            anim.SetTrigger("OnHit");
+        }
+        else
+        {
+            //spriteRenderer.sprite = sprites[1];
+            //Invoke ("RetrunSprite", 0.1f);
+            anim.SetTrigger("Hit");
+            //Invoke("ReturnAnim", 0.1f);
+        }
         if(health <= 0)
         {
             Player playerLogic = player.GetComponent<Player>();
             playerLogic.score += enemyScore;
 
             // 랜덤 아이템 드랍
-            int ran = Random.Range(0, 10);
+            int ran = enemyName == "B" ? 0 : Random.Range(0, 10);
             if(ran < 5)
             { Debug.Log("Not Item"); }
             else if (ran < 6) // 코인
@@ -143,7 +291,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "BorderBullet")
+        if (collision.gameObject.tag == "BorderBullet" && enemyName != "B")
             gameObject.SetActive(false);
         else if (collision.gameObject.tag == "PlayerBullet")
         {

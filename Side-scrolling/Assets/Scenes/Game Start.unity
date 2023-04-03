@@ -6586,7 +6586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6357e942df65c734c9fbe8dccb516911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBPrefab: {fileID: 7725111389634324384, guid: ebc1443d22b9ade48a425abdae667efb, type: 3}
+  enemyBPrefab: {fileID: 8176573084938782219, guid: ebc1443d22b9ade48a425abdae667efb, type: 3}
   enemyLPrefab: {fileID: 7838318219041491134, guid: f07be2d2f1972a3498e3653844372339, type: 3}
   enemyMPrefab: {fileID: 254357922394996886, guid: 62030cfe2c97b794cbaa22c5676c5f98, type: 3}
   enemySPrefab: {fileID: 3784820370003601588, guid: d8c56179a17659f41ac3e6fba8bca9a7, type: 3}

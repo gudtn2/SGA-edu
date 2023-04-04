@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
 
     void Fire()
     {
-        if (!Input.GetButton("Fire1"))
+        if (!(Input.GetButton("Fire1") || Input.GetKey(KeyCode.X)))
             return;
 
         if (curShotDelay < maxShotDelay)
@@ -150,7 +150,7 @@ public class Player : MonoBehaviour
 
     void Boom()
     {
-        if (!Input.GetButton("Fire2"))
+        if (!(Input.GetButton("Fire2") || Input.GetKey(KeyCode.C)))
             return;
 
         if (isBoomTime)

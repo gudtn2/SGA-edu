@@ -191,6 +191,7 @@ public class GameManager : MonoBehaviour
 
     public void GameRetry()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 }

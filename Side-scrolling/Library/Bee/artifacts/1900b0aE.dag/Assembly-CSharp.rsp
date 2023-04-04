@@ -371,6 +371,7 @@
 "Assets/Scripts/MyGizmo.cs"
 "Assets/Scripts/new script/Bullet.cs"
 "Assets/Scripts/new script/Enemy.cs"
+"Assets/Scripts/new script/Explosion.cs"
 "Assets/Scripts/new script/Follower.cs"
 "Assets/Scripts/new script/GameManager.cs"
 "Assets/Scripts/new script/Item.cs"

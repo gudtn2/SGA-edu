@@ -30,12 +30,43 @@ public class Player : MonoBehaviour
     public bool isBoomTime;
 
     public GameObject[] followers;
+    public bool isRespawnTime;
 
     Animator anim;
+    SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    void OnEnable()
+    {
+        Unbeatable();
+        Invoke("Unbeatable", 3);
+    }
+
+    void Unbeatable()
+    {
+        isRespawnTime = !isRespawnTime;
+        if (isRespawnTime) //무적타임 이펙트
+        {
+            spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+
+            for(int index = 0; index<followers.Length; index++)
+            {
+                followers[index].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+            }
+        }
+        else //무적종료
+        {
+            spriteRenderer.color = new Color(1, 1, 1, 1);
+
+            for (int index = 0; index < followers.Length; index++)
+            {
+                followers[index].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            }
+        }
     }
     void Update()
     {
@@ -169,6 +200,9 @@ public class Player : MonoBehaviour
         // 총알 제거
         GameObject[] bulletsA = objectManager.GetPool("BulletEnemyA");
         GameObject[] bulletsB = objectManager.GetPool("BulletEnemyB");
+        GameObject[] bulletsC = objectManager.GetPool("BulletBossA");
+        GameObject[] bulletsD = objectManager.GetPool("BulletBossB");
+
         for (int index = 0; index < bulletsA.Length; index++)
         {
             if (bulletsA[index].activeSelf)
@@ -182,6 +216,20 @@ public class Player : MonoBehaviour
             if (bulletsB[index].activeSelf)
             {
                 bulletsB[index].SetActive(false);
+            }
+        }
+        for (int index = 0; index < bulletsC.Length; index++)
+        {
+            if (bulletsC[index].activeSelf)
+            {
+                bulletsC[index].SetActive(false);
+            }
+        }
+        for (int index = 0; index < bulletsD.Length; index++)
+        {
+            if (bulletsD[index].activeSelf)
+            {
+                bulletsD[index].SetActive(false);
             }
         }
     }
@@ -208,12 +256,16 @@ public class Player : MonoBehaviour
         }    
         else if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet")
         {
+            if (isRespawnTime)
+                return;
+
             if (isHit)
                 return;
 
             isHit = true;
             life--;
             gameManager.UpadateLifeIcon(life);
+            gameManager.CallExplosion(transform.position, "P");
 
             if(life == 0)
             {

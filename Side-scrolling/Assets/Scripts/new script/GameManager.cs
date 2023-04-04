@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public Image[] lifeImage;
     public Image[] boomImage;
     public GameObject gameOverSet;
+    public GameObject VictorySet;
     public ObjectManager objectManager;
 
     public List<Spawn> spawnList;
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour
         Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
         Enemy enemyLogic = enemy.GetComponent<Enemy>();
         enemyLogic.player = player;
+        enemyLogic.gameManager = this;
         enemyLogic.objectManager = objectManager;
 
         if (enemyPoint == 5 || enemyPoint == 6) //위에서 스폰
@@ -168,9 +170,23 @@ public class GameManager : MonoBehaviour
         playerLogic.isHit = false;
     }
 
+    public void CallExplosion(Vector3 pos, string type)
+    {
+        GameObject explosion = objectManager.MakeObj("Explosion");
+        Explosion explosionLogic = explosion.GetComponent<Explosion>();
+
+        explosion.transform.position = pos;
+        explosionLogic.StartExplosion(type);
+    }
     public void GameOver()
     {
         gameOverSet.SetActive(true);
+    }
+
+    public void Victory()
+    {
+        VictorySet.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void GameRetry()

@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     public GameObject boomEffect;
 
     // 추후 list로 변경
-    public GameObject[] stageBack = new GameObject[7];
+    
 
     /*
     Dictionary<string, object>;
@@ -92,8 +92,7 @@ public class PlayerController : MonoBehaviour
 
         CoolDown = 1.0f;
 
-        for (int i = 0; i < 7; ++i)
-            stageBack[i] = GameObject.Find(i.ToString());
+        
     }
 
     // ** 유니티 기본 제공 함수

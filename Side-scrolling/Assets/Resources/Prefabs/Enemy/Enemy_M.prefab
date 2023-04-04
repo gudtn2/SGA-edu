@@ -102,8 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: M
   enemyScore: 100
-  speed: 10
-  health: 20
+  speed: 15
+  health: 50
   sprites:
   - {fileID: -7500690451134026123, guid: 8dee453321432cc47b70ddef8f3a3a68, type: 3}
   - {fileID: -889859373511162655, guid: 8dee453321432cc47b70ddef8f3a3a68, type: 3}
@@ -115,6 +115,11 @@ MonoBehaviour:
   itemPower: {fileID: 757529003264523513, guid: 71cc0edba299bb24b82664986d312262, type: 3}
   itemBoom: {fileID: 8046811116417784171, guid: 2310aed78b97b8743ac0ecc218bde56a, type: 3}
   player: {fileID: 0}
+  objectManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  patternIndex: 0
+  curPatternCount: 0
+  maxPatternCount: 
 --- !u!70 &254357922394996882
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

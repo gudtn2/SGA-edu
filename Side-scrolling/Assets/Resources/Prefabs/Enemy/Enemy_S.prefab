@@ -103,7 +103,7 @@ MonoBehaviour:
   enemyName: S
   enemyScore: 50
   speed: 3
-  health: 15
+  health: 30
   sprites:
   - {fileID: -7500690451134026123, guid: dcdda75e148449b4283619583230b32e, type: 3}
   - {fileID: -889859373511162655, guid: dcdda75e148449b4283619583230b32e, type: 3}
@@ -115,6 +115,11 @@ MonoBehaviour:
   itemPower: {fileID: 757529003264523513, guid: 71cc0edba299bb24b82664986d312262, type: 3}
   itemBoom: {fileID: 8046811116417784171, guid: 2310aed78b97b8743ac0ecc218bde56a, type: 3}
   player: {fileID: 0}
+  objectManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  patternIndex: 0
+  curPatternCount: 0
+  maxPatternCount: 
 --- !u!70 &3784820370003601592
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

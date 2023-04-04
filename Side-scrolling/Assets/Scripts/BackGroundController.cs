@@ -28,6 +28,7 @@ public class BackGroundController : MonoBehaviour
 
     // ** 움직임 정보
     private Vector3 movemane;
+    public GameObject[] stageBack = new GameObject[7];
 
     // ** 이미지가 중앙 위치에 정상적으로 노출될 수 있도록 하기 위한 완충역할.
     private Vector3 offset = new Vector3(0.0f, 7.5f, 0.0f);
@@ -35,7 +36,7 @@ public class BackGroundController : MonoBehaviour
     private void Awake()
     {
         // ** 플레이어의 기본정보를 받아온다.
-        player = GameObject.Find("Player").gameObject;
+        //player = GameObject.Find("Player").gameObject;
 
         // ** 부모객체를 받아온다.
         parent = GameObject.Find("BackGround").transform;
@@ -44,7 +45,7 @@ public class BackGroundController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         // ** 플레이어 이미지를 담고있는 구성요소를 받아온다.
-        playerController = player.GetComponent<PlayerController>();
+        //playerController = player.GetComponent<PlayerController>();
     }
 
     void Start()
@@ -63,6 +64,9 @@ public class BackGroundController : MonoBehaviour
 
         // ** 종료지점을 설정.
         exitPoint = -(sprite.bounds.size.x * 0.5f);
+
+        for (int i = 0; i < 7; ++i)
+            stageBack[i] = GameObject.Find(i.ToString());
     }
 
     void Update()

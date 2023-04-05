@@ -1451,7 +1451,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: e715fcabbb6163e48b780b3b92979f8e, type: 3}
     m_FontSize: 45
     m_FontStyle: 1
     m_BestFit: 0
@@ -4343,7 +4343,7 @@ MonoBehaviour:
   curShotDelay: 0
   objectManager: {fileID: 1529288212}
   followPos: {x: -1, y: 0, z: 0}
-  followDelay: 70
+  followDelay: 100
   parent: {fileID: 1403546323}
 --- !u!212 &1241260483
 SpriteRenderer:
@@ -5544,7 +5544,7 @@ MonoBehaviour:
   curShotDelay: 0
   objectManager: {fileID: 1529288212}
   followPos: {x: -1, y: 0, z: 0}
-  followDelay: 70
+  followDelay: 100
   parent: {fileID: 1241260484}
 --- !u!212 &1425842666
 SpriteRenderer:
@@ -6524,7 +6524,7 @@ MonoBehaviour:
   curShotDelay: 0
   objectManager: {fileID: 1529288212}
   followPos: {x: -1, y: 0, z: 0}
-  followDelay: 70
+  followDelay: 100
   parent: {fileID: 1425842664}
 --- !u!212 &1514005397
 SpriteRenderer:

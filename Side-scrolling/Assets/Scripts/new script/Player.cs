@@ -110,7 +110,6 @@ public class Player : MonoBehaviour
                 //Power One
                 GameObject bullet = objectManager.MakeObj("BulletPlayerA");
                 bullet.transform.position = transform.position + Vector3.right * 1.0f +Vector3.up * 1.5f;
-
                 Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
                 rigid.AddForce(Vector2.right * bulletSpeed, ForceMode2D.Impulse);
                 break;

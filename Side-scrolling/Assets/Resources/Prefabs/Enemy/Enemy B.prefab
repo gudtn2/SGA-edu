@@ -174,4 +174,4 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   patternIndex: -1
   curPatternCount: 0
-  maxPatternCount: 050000000a000000c70000000a000000
+  maxPatternCount: 0500000008000000c70000000a000000

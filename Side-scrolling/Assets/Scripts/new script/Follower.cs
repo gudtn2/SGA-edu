@@ -45,14 +45,12 @@ public class Follower : MonoBehaviour
 
     void Fire()
     {
-        if (!Input.GetButton("Fire1"))
+        if (!(Input.GetButton("Fire1") || Input.GetKey(KeyCode.X)))
             return;
 
         if (curShotDelay < maxShotDelay)
             return;
-
        
-                //Power One
                 GameObject bullet = objectManager.MakeObj("BulletFollower");
                 bullet.transform.position = transform.position + Vector3.right * 1.0f;
 

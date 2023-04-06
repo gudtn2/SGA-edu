@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
         switch (enemyName)
         {
             case "B":
-                health = 3000;
+                health = 1500;
                 Invoke("Stop", 3);
 
                 break;
@@ -140,7 +140,7 @@ public class Enemy : MonoBehaviour
             Vector2 dirVec = player.transform.position - transform.position;
             Vector2 ranVec = new Vector2(Random.Range(0f, 4f), Random.Range(-2.0f, 2.0f));
             dirVec += ranVec;
-            rigid.AddForce(dirVec.normalized * 17, ForceMode2D.Impulse);
+            rigid.AddForce(dirVec.normalized * 19, ForceMode2D.Impulse);
         }        
 
         curPatternCount++;
@@ -159,7 +159,7 @@ public class Enemy : MonoBehaviour
         bullet.transform.rotation = Quaternion.identity;
 
         Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
-        Vector2 dirVec = new Vector2(-1, Mathf.Sin(curPatternCount));
+        Vector2 dirVec = new Vector2(-1, Mathf.Cos(curPatternCount));
         rigid.AddForce(dirVec.normalized * 20, ForceMode2D.Impulse);
         
         curPatternCount++;

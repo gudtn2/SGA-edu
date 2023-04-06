@@ -163,7 +163,7 @@ public class Player : MonoBehaviour
 
         // 이펙트켜기
         boomEffect.SetActive(true);
-        Invoke("OffBoomEffect", 3f);
+        Invoke("OffBoomEffect", 1.5f);
         // 적 제거
         GameObject[] enemiesL = objectManager.GetPool("EnemyL");
         GameObject[] enemiesM = objectManager.GetPool("EnemyM");

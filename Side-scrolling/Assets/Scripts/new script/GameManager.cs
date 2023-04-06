@@ -28,7 +28,14 @@ public class GameManager : MonoBehaviour
     {
         spawnList = new List<Spawn>();
         enemyObjs = new string[] { "EnemyS", "EnemyM", "EnemyL", "EnemyB" };
+        Time.timeScale = 0;
         ReadSpawnFile();
+    }
+
+    public void GameStart()
+    {
+        Time.timeScale = 1;
+        player.SetActive(true);
     }
     void ReadSpawnFile()
     {
@@ -193,5 +200,10 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
+    }
+
+    public void GameQuit()
+    {
+        Application.Quit();
     }
 }

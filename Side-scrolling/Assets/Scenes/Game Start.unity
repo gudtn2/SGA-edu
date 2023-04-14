@@ -316,7 +316,7 @@ RectTransform:
   m_Children:
   - {fileID: 2125646380}
   m_Father: {fileID: 1090304678}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -654,7 +654,7 @@ RectTransform:
   m_Children:
   - {fileID: 1777544754}
   m_Father: {fileID: 1090304678}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1331,7 +1331,7 @@ RectTransform:
   - {fileID: 307008260}
   - {fileID: 1521057453}
   m_Father: {fileID: 1356546164}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2045,7 +2045,7 @@ RectTransform:
   - {fileID: 526525431}
   - {fileID: 1601899678}
   m_Father: {fileID: 1356546164}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2624,12 +2624,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1790417040}
   - {fileID: 49261134}
   - {fileID: 204335994}
   - {fileID: 1794993168}
   m_Father: {fileID: 1356546164}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3047,6 +3046,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1790417040}
   - {fileID: 404654587}
   - {fileID: 769118347}
   - {fileID: 1090304678}
@@ -4111,7 +4111,7 @@ RectTransform:
   - {fileID: 342317773}
   - {fileID: 689140384}
   m_Father: {fileID: 1356546164}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4619,6 +4619,7 @@ MonoBehaviour:
   - {fileID: 845195684}
   nextSpawnDelay: 0
   curSpawnDelay: 0
+  title: {fileID: 1790417039}
   player: {fileID: 1403546320}
   scoreText: {fileID: 344425821}
   lifeImage:
@@ -4745,7 +4746,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1090304678}
+  m_Father: {fileID: 1356546164}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4844,7 +4845,7 @@ RectTransform:
   - {fileID: 1641830948}
   - {fileID: 1805165205}
   m_Father: {fileID: 1090304678}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

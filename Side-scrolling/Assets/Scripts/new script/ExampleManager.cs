@@ -5,13 +5,20 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
-
-
+[System.Serializable]
+public class GoogleData
+{
+    public string order, result, msg, value;
+}
 
 public class ExampleManager : MonoBehaviour
 {
     string URL = "https://script.google.com/macros/s/AKfycbx7nzu7bazW30J6sQEsjtWvpa17RAbN04k76ffmqce0TYy2GwbV8kLeg4jXLBXoBxFf/exec";
-    public InputField IDInput, PassInput;
+    public GoogleData GD;
+    public InputField IDInput, PassInput, ValueInput;
+    public GameObject Successlogin;
+    public GameObject Faillogin;
+    public GameObject SuccessRegister;
     string id, pass;
 
     bool SetIDPass()
@@ -54,6 +61,31 @@ public class ExampleManager : MonoBehaviour
 
         StartCoroutine(Post(form));
     }
+    void OnApplicationQuit()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("order", "logout");
+
+        StartCoroutine(Post(form));
+    }
+
+    public void SetValue()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("order", "setValue");
+        form.AddField("value", ValueInput.text);
+
+        StartCoroutine(Post(form));
+    }
+
+    public void GetValue()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("order", "getValue");
+
+        StartCoroutine(Post(form));
+    }
+
     IEnumerator Post(WWWForm form)
     {
         // ** 요청을 하기위한 작업
@@ -78,9 +110,58 @@ public class ExampleManager : MonoBehaviour
         {
             yield return request.SendWebRequest();
 
-            if (request.isDone) print(request.downloadHandler.text);
+            if (request.isDone) Response(request.downloadHandler.text);
             else print("웹의 응답이 없습니다.");
         }
+    }
+
+    void Response(string json)
+    {
+        if (string.IsNullOrEmpty(json)) return;
+
+        GD = JsonUtility.FromJson<GoogleData>(json);
+
+        if (GD.result == "ERROR")
+        {
+            print(GD.order + "을 실행할 수 없습니다. 에러 메시지 : " + GD.msg);
+            Faillogin.SetActive(true);
+            Invoke("FailOff", 1.0f);
+            return;
+        }
+
+        print(GD.order + "을 실행했습니다. 메시지 : " + GD.msg);
+
+        if (GD.order == "getValue")
+        {
+            ValueInput.text = GD.value;
+        }
+
+        if (GD.order == "login")
+        {
+            Successlogin.SetActive(true);
+            Invoke("NextScene", 1.0f);
+        }
+
+        if (GD.order == "register")
+        {
+            SuccessRegister.SetActive(true);
+            Invoke("RegisterOff", 1.0f);
+        }
+    }
+
+    void LoginOff()
+    {
+        Successlogin.SetActive(false);
+    }
+
+    void FailOff()
+    {
+        Faillogin.SetActive(false);
+    }
+
+    void RegisterOff()
+    {
+        SuccessRegister.SetActive(false);
     }
 
     public void NextScene()

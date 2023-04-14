@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public float nextSpawnDelay;
     public float curSpawnDelay;
 
+    public GameObject title;
     public GameObject player;
     public Text scoreText;
     public Image[] lifeImage;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         Time.timeScale = 1;
+        title.SetActive(false);
         player.SetActive(true);
     }
     void ReadSpawnFile()

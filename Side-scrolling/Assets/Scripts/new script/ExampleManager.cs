@@ -15,24 +15,38 @@ public class ExampleManager : MonoBehaviour
 {
     string URL = "https://script.google.com/macros/s/AKfycbx7nzu7bazW30J6sQEsjtWvpa17RAbN04k76ffmqce0TYy2GwbV8kLeg4jXLBXoBxFf/exec";
     public GoogleData GD;
-    public InputField IDInput, PassInput, ValueInput;
+    public InputField IDInput, PassInput, ValueInput, NewIDInput, NewPassInput, NameInput, AgeInput;
+    public Toggle Man, Woman;
+    public GameObject RegisterUI;
     public GameObject Successlogin;
     public GameObject Faillogin;
     public GameObject SuccessRegister;
-    string id, pass;
+    string id, pass, newid, newpass, nname, age;
 
-    bool SetIDPass()
+    bool SetLoginPass()
     {
         id = IDInput.text.Trim();
         pass = PassInput.text.Trim();
-
+        newid = NewIDInput.text.Trim();
+        newpass = NewPassInput.text.Trim();
+        nname = NameInput.text.Trim();
+        age = AgeInput.text.Trim();
         if (id == "" || pass == "") return false;
+        else return true;
+    }
+    bool SetRegisterPass()
+    {
+        newid = NewIDInput.text.Trim();
+        newpass = NewPassInput.text.Trim();
+        nname = NameInput.text.Trim();
+        age = AgeInput.text.Trim();
+        if (newid == "" || newpass == "" || nname == "" || age == "") return false;
         else return true;
     }
 
     public void Register()
     {
-        if (!SetIDPass())
+        if (!SetRegisterPass())
         {
             print("아이디 또는 비밀번호가 비어있습니다.");
             return;
@@ -40,15 +54,30 @@ public class ExampleManager : MonoBehaviour
 
         WWWForm form = new WWWForm();
         form.AddField("order", "register");
-        form.AddField("id", id);
-        form.AddField("pass", pass);
+        form.AddField("id", newid);
+        form.AddField("pass", newpass);
+        form.AddField("name", nname);
+        form.AddField("age", age);
+        form.AddField("age", age);
+        if(Man == true)
+        {
+            form.AddField("gender", 1);
+        }
+        else if(Woman == true)
+        {
+            form.AddField("gender", 2);
+        }
+        else
+        {
+            return;
+        }
 
         StartCoroutine(Post(form));
     }
 
     public void Login()
     {
-        if (!SetIDPass())
+        if (!SetLoginPass())
         {
             print("아이디 또는 비밀번호가 비어있습니다.");
             return;
@@ -145,6 +174,7 @@ public class ExampleManager : MonoBehaviour
         if (GD.order == "register")
         {
             SuccessRegister.SetActive(true);
+            RegisterUI.SetActive(false);
             Invoke("RegisterOff", 1.0f);
         }
     }

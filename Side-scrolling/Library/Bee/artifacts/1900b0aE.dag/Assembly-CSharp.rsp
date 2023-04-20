@@ -372,6 +372,7 @@
 "Assets/Scripts/new script/Follower.cs"
 "Assets/Scripts/new script/GameManager.cs"
 "Assets/Scripts/new script/Item.cs"
+"Assets/Scripts/new script/LoginController.cs"
 "Assets/Scripts/new script/ObjectManager.cs"
 "Assets/Scripts/new script/Player.cs"
 "Assets/Scripts/new script/ProgressBar.cs"

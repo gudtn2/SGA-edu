@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using System.Security.Cryptography;
+using System.Text;
 
 [System.Serializable]
 public class GoogleData
@@ -51,19 +53,19 @@ public class ExampleManager : MonoBehaviour
             print("아이디 또는 비밀번호가 비어있습니다.");
             return;
         }
-
+        string password = Security(newpass);
         WWWForm form = new WWWForm();
         form.AddField("order", "register");
         form.AddField("id", newid);
-        form.AddField("pass", newpass);
+        form.AddField("pass", password);
         form.AddField("name", nname);
         form.AddField("age", age);
         form.AddField("age", age);
-        if(Man == true)
+        if(Man.isOn)
         {
             form.AddField("gender", 1);
         }
-        else if(Woman == true)
+        else if(Woman.isOn)
         {
             form.AddField("gender", 2);
         }
@@ -82,11 +84,12 @@ public class ExampleManager : MonoBehaviour
             print("아이디 또는 비밀번호가 비어있습니다.");
             return;
         }
+        string password = Security(pass);
 
         WWWForm form = new WWWForm();
         form.AddField("order", "login");
         form.AddField("id", id);
-        form.AddField("pass", pass);
+        form.AddField("pass", password);
 
         StartCoroutine(Post(form));
     }
@@ -199,4 +202,29 @@ public class ExampleManager : MonoBehaviour
         SceneManager.LoadScene("progressScene");
     }
 
+    string Security(string password)
+    {
+        if (string.IsNullOrEmpty(password))
+        {
+            // ** true
+            //message.text = "password는 필수 입력 값 입니다.";
+            return "null";
+
+        }
+        else
+        {
+            // ** 암호화 & 복호화
+            // ** false
+            SHA256 sha = new SHA256Managed();
+            byte[] hash = sha.ComputeHash(Encoding.ASCII.GetBytes(password));
+            StringBuilder stringBuilder = new StringBuilder();
+
+            foreach (byte b in hash)
+            {
+                stringBuilder.AppendFormat("{0:x2}", b);
+            }
+
+            return stringBuilder.ToString();
+        }
+    }
 }
